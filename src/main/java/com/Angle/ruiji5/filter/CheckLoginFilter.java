@@ -13,11 +13,11 @@ import java.io.IOException;
 
 /**
  * 功能描述
- *拦截请求，未登录用户跳转到登录界面
+ *拦截请求，未登录用户跳转到登录界面    待实现 有Bug
  * @author: 启文
  * @date: 2023年08月26日 13:59
  */
-@WebFilter(filterName = "CheckLoginFilter",urlPatterns = "/*")
+//@WebFilter(filterName = "CheckLoginFilter",urlPatterns = "/*")
 @Slf4j
 public class CheckLoginFilter implements Filter {
     public static AntPathMatcher antPathMatcher=new AntPathMatcher();
@@ -34,8 +34,8 @@ public class CheckLoginFilter implements Filter {
           "/backend/**",
           "/front/**"
         };
-        boolean checkurl = checkurl(urls, url);//获取是否存在数组中
-        if (checkurl){
+        boolean checkurled = checkurl(urls, url);//获取是否存在数组中
+        if (checkurled){
             filterChain.doFilter(request,response);
             return;
         }
@@ -43,7 +43,7 @@ public class CheckLoginFilter implements Filter {
             filterChain.doFilter(request,response);
             return;
         }
-        response.getWriter().write(JSON.toJSONString(R.error("NOTLOGIN")));
+        response.getWriter().write(JSON.toJSONString(R.error("111NOTLOGIN")));
 
         log.info("请求路径：{}",request.getRequestURI());
     }

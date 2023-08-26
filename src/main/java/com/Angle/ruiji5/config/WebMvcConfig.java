@@ -3,7 +3,6 @@ package com.Angle.ruiji5.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 功能描述
@@ -18,5 +17,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
         registry.addResourceHandler("/backend/**").addResourceLocations("classpath:/backend/");
         registry.addResourceHandler("/front/**").addResourceLocations("classpath:/front/");
+//  Ctrl + D 向下复制一行
+//        registry.addResourceHandler("/front/**").addResourceLocations("classpath:/front/");
     }
 }
